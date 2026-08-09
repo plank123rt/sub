@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KP Significator Tables — All Planets</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --panel: #171a24;
+    --panel-border: #2a2e3d;
+    --accent: #c9a876;
+    --accent-soft: #8a7250;
+    --text: #e8e6df;
+    --text-dim: #9a9caa;
+    --tier1: #c9556a;
+    --tier2: #4f8fbf;
+    --tier3: #6fa06f;
+    --row-alt: #1c2030;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: radial-gradient(ellipse at top, #171b28 0%, #0f1117 60%);
+    color: var(--text);
+    font-family: 'Georgia', 'Cambria', serif;
+    margin: 0;
+    padding: 40px 20px 80px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+  }
+  .legend {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin: 24px 0 36px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  .legend span.dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .dot.t1 { background: var(--tier1); }
+  .dot.t2 { background: var(--tier2); }
+  .dot.t3 { background: var(--tier3); }
+
+  .planet-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 24px 28px 20px;
+    margin-bottom: 28px;
+  }
+  .planet-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .planet-name {
+    font-size: 1.35rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .planet-meta {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    text-align: right;
+  }
+  .chain-note {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .chain-note b { color: var(--text); font-weight: 600; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.88rem;
+  }
+  thead th {
+    text-align: left;
+    color: var(--accent-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--panel-border);
+  }
+  tbody td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #20232e;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  .house-cell {
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .rank-cell {
+    color: var(--accent);
+    font-weight: 700;
+    width: 34px;
+  }
+  .tier1cell { color: var(--tier1); }
+  .tier2cell { color: var(--tier2); }
+  .tier3cell { color: var(--tier3); }
+  .empty { color: #4a4d5a; }
+
+  .untouched {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--panel-border);
+  }
+  .untouched b { color: var(--text); }
+
+  footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.78rem;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>KP Significator Tables</h1>
+  <div class="subtitle">Placidus / Bhava Chalit cusps · sub-lord hierarchy: Sub-lord &gt; Occupant &gt; Owner</div>
+
+  <div class="legend">
+    <span><span class="dot t1"></span>Tier 1 — Sub-lord of cusp (final word / strongest)</span>
+    <span><span class="dot t2"></span>Tier 2 — Occupant of house</span>
+    <span><span class="dot t3"></span>Tier 3 — Owner / sign lord (weakest)</span>
+  </div>
+
+  <!-- RAHU -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Rahu — Mahadasha Significators</div>
+      <div class="planet-meta">Node · owns no sign · chain via dispositor</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 5th) + <b>Dispositor Saturn</b> (Rahu in Aquarius — owns 4th, occupies 2nd, sub-lord of 2/4/8/10)
+      + <b>Conjunct Mercury</b> (owns 9th/11th, occupies 5th) + <b>Star lord Jupiter</b> (owns 3rd/5th, occupies 6th)
+      + <b>Sub-lord Sun</b> (sub-lord of 1st) — with Rahu's own direct sub-lordship of the 11th cusp.
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 — Sub-lord</th><th>Tier 2 — Occupant</th><th>Tier 3 — Owner</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">11th</td><td class="tier1cell">Rahu (self), Mercury</td><td class="empty">—</td><td class="tier3cell">Mercury</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="empty">—</td><td class="tier2cell">Rahu, Mercury</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">12th</td><td class="tier1cell">Mercury</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter, Sun</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">9</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">10</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">11</td><td class="house-cell">9th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mercury</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>7th</b> only.</div>
+  </div>
+
+  <!-- MARS -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Mars — Mahadasha Significators</div>
+      <div class="planet-meta">Owns 2nd, 6th, 7th · occupies 3rd</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 3rd, owns 2/6/7, sub-lord of 5/7) + <b>Star lord Sun</b> (occupies 6th, sub-lord of 1st)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 — Sub-lord</th><th>Tier 2 — Occupant</th><th>Tier 3 — Owner</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">7th</td><td class="tier1cell">Mars (self)</td><td class="empty">—</td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="tier1cell">Mars (self)</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun, Jupiter</td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="tier2cell">Mars (self)</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">2nd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mars (self)</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>4th, 8th, 9th, 10th, 11th, 12th</b>.</div>
+  </div>
+
+  <h1 style="font-size:1.4rem; margin-top: 44px;">Remaining Seven Planets</h1>
+  <div class="subtitle" style="margin-bottom:24px;">Same chain logic — self + star lord + sub-lord (+ conjunct planet where relevant)</div>
+
+  <!-- SUN -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Sun</div>
+      <div class="planet-meta">Owns no cusp · occupies 6th · conjunct Jupiter</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 6th, sub-lord of 1st) + <b>Star lord Saturn</b> (owns 4th, occupies 2nd, sub-lord of 2/4/8/10)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun (self), Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>7th, 9th, 11th, 12th</b>.</div>
+  </div>
+
+  <!-- MOON -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Moon</div>
+      <div class="planet-meta">Owns 10th · occupies 11th · conjunct Ketu</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 11th, owns 10th, sub-lord of 3rd) + <b>Star lord Venus</b> (owns 1st/8th/12th, occupies 7th, sub-lord of 6th/9th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Moon (self)</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">1st</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">10th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Moon (self)</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">12th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>2nd, 4th, 5th</b>.</div>
+  </div>
+
+  <!-- MERCURY -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Mercury</div>
+      <div class="planet-meta">Owns 9th, 11th · occupies 5th · conjunct Rahu</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 5th, owns 9th/11th, sub-lord of 12th) + <b>Star lord Jupiter</b> (owns 3rd/5th, occupies 6th)
+      + <b>Sub-lord Venus</b> (owns 1st/8th/12th, occupies 7th, sub-lord of 6th/9th) + <b>Conjunct Rahu</b> (occupies 5th, sub-lord of 11th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">5th</td><td class="empty">—</td><td class="tier2cell">Mercury (self), Rahu</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="tier2cell">Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="tier3cell">Mercury (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">11th</td><td class="tier1cell">Rahu</td><td class="empty">—</td><td class="tier3cell">Mercury (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">12th</td><td class="tier1cell">Mercury (self)</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>2nd, 4th, 10th</b>.</div>
+  </div>
+
+  <!-- JUPITER -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Jupiter</div>
+      <div class="planet-meta">Owns 3rd, 5th · occupies 6th · conjunct Sun</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 6th, owns 3rd/5th) + <b>Star lord Ketu</b> (occupies 11th) + <b>Sub-lord Saturn</b>
+      (owns 4th, occupies 2nd, sub-lord of 2/4/8/10) + <b>Conjunct Sun</b> (occupies 6th, sub-lord of 1st).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter (self), Sun</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter (self)</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter (self)</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>7th, 9th, 12th</b>.</div>
+  </div>
+
+  <!-- VENUS -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Venus</div>
+      <div class="planet-meta">Owns 1st, 8th, 12th · occupies 7th (alone)</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 7th, owns 1st/8th/12th, sub-lord of 6th/9th) + <b>Star lord Sun</b> (occupies 6th, sub-lord of 1st)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus (self)</td><td class="tier2cell">Sun, Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus (self)</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">12th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>2nd, 4th, 10th, 11th</b>.</div>
+  </div>
+
+  <!-- SATURN -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Saturn</div>
+      <div class="planet-meta">Owns 4th (Parashari yogakaraka 4/5) · occupies 2nd</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 2nd, owns 4th, sub-lord of 2/4/8/10) + <b>Star lord Ketu</b> (occupies 11th)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn (self)</td><td class="tier2cell">Saturn (self)</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="tier3cell">Saturn (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">8th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">10th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>1st, 7th, 9th, 12th</b>.</div>
+  </div>
+
+  <!-- KETU -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Ketu</div>
+      <div class="planet-meta">Node · owns no sign · occupies 11th · conjunct Moon</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 11th) + <b>Dispositor / star lord Sun</b> (Ketu in Leo — occupies 6th, sub-lord of 1st)
+      + <b>Sub-lord Mars</b> (owns 2nd/6th/7th, occupies 3rd, sub-lord of 5th/7th) + <b>Conjunct Moon</b> (owns 10th, occupies 11th, sub-lord of 3rd).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon</td><td class="tier2cell">Mars</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">7th</td><td class="tier1cell">Mars</td><td class="empty">—</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu (self), Moon</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">5th</td><td class="tier1cell">Mars</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">2nd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">10th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Moon</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>4th, 8th, 9th, 12th</b>.</div>
+  </div>
+
+  <footer>
+    Built from Placidus/Bhava Chalit cuspal sub-lord table · sign-lord (owner) column · Bhava Chalit occupancy · KP hierarchy: Sub-lord &gt; Occupant &gt; Owner
+  </footer>
+
+</div>
+</body>
+</html>
