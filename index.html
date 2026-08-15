@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dasha · Bhukti Activation</title>
+<title>KP Significator Tables — All Planets</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -12,10 +12,9 @@
     --accent-soft: #8a7250;
     --text: #e8e6df;
     --text-dim: #9a9caa;
-    --both: #c9556a;
-    --mdonly: #c9a876;
-    --adonly: #4f8fbf;
-    --none-bg: #1a1d28;
+    --tier1: #c9556a;
+    --tier2: #4f8fbf;
+    --tier3: #6fa06f;
     --row-alt: #1c2030;
   }
   * { box-sizing: border-box; }
@@ -49,26 +48,24 @@
     font-family: -apple-system, 'Segoe UI', sans-serif;
     font-size: 0.85rem;
     color: var(--text-dim);
-    align-items: center;
   }
   .legend span.dot {
     display: inline-block;
-    width: 14px; height: 14px;
-    border-radius: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
     margin-right: 6px;
     vertical-align: middle;
   }
-  .dot.both { background: var(--both); }
-  .dot.md { background: var(--mdonly); }
-  .dot.ad { background: var(--adonly); }
-  .dot.none { background: var(--none-bg); border: 1px solid var(--panel-border); }
+  .dot.t1 { background: var(--tier1); }
+  .dot.t2 { background: var(--tier2); }
+  .dot.t3 { background: var(--tier3); }
 
   .planet-card {
     background: var(--panel);
     border: 1px solid var(--panel-border);
     border-radius: 10px;
     padding: 24px 28px 20px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   .planet-header {
     display: flex;
@@ -94,36 +91,155 @@
     font-family: -apple-system, 'Segoe UI', sans-serif;
     font-size: 0.83rem;
     color: var(--text-dim);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     line-height: 1.6;
   }
   .chain-note b { color: var(--text); font-weight: 600; }
 
-  .ad-block {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.88rem;
+  }
+  thead th {
+    text-align: left;
+    color: var(--accent-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--panel-border);
+  }
+  tbody td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #20232e;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  .house-cell {
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .rank-cell {
+    color: var(--accent);
+    font-weight: 700;
+    width: 34px;
+  }
+  .tier1cell { color: var(--tier1); }
+  .tier2cell { color: var(--tier2); }
+  .tier3cell { color: var(--tier3); }
+  .empty { color: #4a4d5a; }
+
+  .untouched {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--panel-border);
+  }
+  .untouched b { color: var(--text); }
+
+  footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.78rem;
+    margin-top: 40px;
+  }
+
+  /* --- Dasha · Bhukti Activation section (scoped to avoid clashing with the tables above) --- */
+  :root {
+    --both: #c9556a;
+    --mdonly: #c9a876;
+    --adonly: #4f8fbf;
+    --none-bg: #1a1d28;
+  }
+  .db-legend {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin: 24px 0 36px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    align-items: center;
+  }
+  .db-legend span.db-dot {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .db-dot.both { background: var(--both); }
+  .db-dot.md { background: var(--mdonly); }
+  .db-dot.ad { background: var(--adonly); }
+  .db-dot.none { background: var(--none-bg); border: 1px solid var(--panel-border); }
+
+  .db-planet-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 24px 28px 20px;
+    margin-bottom: 32px;
+  }
+  .db-planet-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .db-planet-name {
+    font-size: 1.35rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .db-planet-meta {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    text-align: right;
+  }
+  .db-chain-note {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .db-chain-note b { color: var(--text); font-weight: 600; }
+
+  .db-ad-block {
     padding: 14px 0;
     border-bottom: 1px dashed var(--panel-border);
   }
-  .ad-block:last-child { border-bottom: none; }
-  .ad-title {
+  .db-ad-block:last-child { border-bottom: none; }
+  .db-ad-title {
     font-size: 1.05rem;
     color: var(--text);
     margin-bottom: 3px;
   }
-  .ad-gap {
+  .db-ad-gap {
     font-family: -apple-system, 'Segoe UI', sans-serif;
     font-size: 0.8rem;
     color: var(--text-dim);
     margin-bottom: 10px;
   }
-  .ad-gap b { color: var(--text); }
+  .db-ad-gap b { color: var(--text); }
 
-  .house-grid {
+  .db-house-grid {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
     margin-bottom: 4px;
   }
-  .h-cell {
+  .db-h-cell {
     width: 34px;
     height: 34px;
     display: flex;
@@ -134,12 +250,12 @@
     font-weight: 700;
     font-size: 0.85rem;
   }
-  .h-both { background: var(--both); color: #fff; }
-  .h-md   { background: var(--mdonly); color: #171a24; }
-  .h-ad   { background: var(--adonly); color: #fff; }
-  .h-none { background: var(--none-bg); color: #4a4d5a; border: 1px solid var(--panel-border); }
+  .db-h-cell.both { background: var(--both); color: #fff; }
+  .db-h-cell.md   { background: var(--mdonly); color: #171a24; }
+  .db-h-cell.ad   { background: var(--adonly); color: #fff; }
+  .db-h-cell.none { background: var(--none-bg); color: #4a4d5a; border: 1px solid var(--panel-border); }
 
-  .see-card {
+  .db-see-card {
     font-family: -apple-system, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     color: var(--text-dim);
@@ -147,261 +263,975 @@
     font-style: italic;
   }
 
-  footer {
-    text-align: center;
+  /* --- Theme Comparison & Antardasha Analysis section --- */
+  .th-h1 { font-size:1.4rem; margin-top: 44px; }
+  .th-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 720px) {
+    .th-overview-grid { grid-template-columns: 1fr; }
+  }
+  .th-overview-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+  }
+  .th-overview-card h3 {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    margin: 0 0 4px;
+    font-weight: 700;
+  }
+  .th-overview-card .th-planet-label {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 10px;
+    font-family: 'Georgia', 'Cambria', serif;
+  }
+  .th-overview-card p {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.86rem;
     color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0 0 12px;
+  }
+  .th-overview-card p:last-child { margin-bottom: 0; }
+  .th-overview-card p b { color: var(--text); }
+
+  .th-quote {
+    font-family: 'Georgia', 'Cambria', serif;
+    font-style: italic;
+    color: var(--text);
+    font-size: 1rem;
+    text-align: center;
+    padding: 18px 24px;
+    border-top: 1px solid var(--panel-border);
+    border-bottom: 1px solid var(--panel-border);
+    margin: 8px 0 40px;
+    line-height: 1.6;
+  }
+
+  .th-method {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 36px;
+  }
+  .th-method b { color: var(--text); }
+
+  .th-mahadasha-heading {
+    font-size: 1.6rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin: 36px 0 6px;
+  }
+  .th-mahadasha-intro {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .th-ad-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 22px 26px 20px;
+    margin-bottom: 22px;
+  }
+  .th-ad-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    gap: 8px;
+  }
+  .th-ad-title {
+    font-size: 1.2rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    font-family: 'Georgia', 'Cambria', serif;
+  }
+  .th-ad-tag {
     font-family: -apple-system, 'Segoe UI', sans-serif;
     font-size: 0.78rem;
-    margin-top: 40px;
+    color: var(--text-dim);
+    font-style: italic;
+    text-align: right;
   }
+  .th-ad-combined {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .th-ad-bullets {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.86rem;
+    color: var(--text);
+  }
+  .th-ad-bullets li {
+    padding: 6px 0 6px 18px;
+    position: relative;
+    border-bottom: 1px solid #20232e;
+  }
+  .th-ad-bullets li:last-child { border-bottom: none; }
+  .th-ad-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+  }
+  .th-ad-text {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.86rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <h1>Dasha · Bhukti Activation</h1>
-  <div class="subtitle">For a Mahadasha (MD) lord, the houses it signifies come from its own chain (self + star lord + sub-lord + any conjunct planet). During each Antardasha (AD) inside that Mahadasha, the AD lord's own chain becomes active too, and results for the period come from the combination of both sets of houses. Sequence follows the fixed Vimshottari order (Ke, Ve, Su, Mo, Ma, Ra, Ju, Sa, Me, back to Ke), starting from the Mahadasha lord itself. No timing or duration is given here, only which houses turn on.</div>
+  <h1>KP Significator Tables</h1>
+  <div class="subtitle">Placidus / Bhava Chalit cusps · sub-lord hierarchy: Sub-lord &gt; Occupant &gt; Owner</div>
 
   <div class="legend">
-    <span><span class="dot both"></span>Both MD & AD lord touch this house</span>
-    <span><span class="dot md"></span>MD lord only</span>
-    <span><span class="dot ad"></span>AD lord only</span>
-    <span><span class="dot none"></span>Untouched this period</span>
+    <span><span class="dot t1"></span>Tier 1 — Sub-lord of cusp (final word / strongest)</span>
+    <span><span class="dot t2"></span>Tier 2 — Occupant of house</span>
+    <span><span class="dot t3"></span>Tier 3 — Owner / sign lord (weakest)</span>
+  </div>
+
+  <!-- RAHU -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Rahu — Mahadasha Significators</div>
+      <div class="planet-meta">Node · owns no sign · chain via dispositor</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 5th) + <b>Dispositor Saturn</b> (Rahu in Aquarius — owns 4th, occupies 2nd, sub-lord of 2/4/8/10)
+      + <b>Conjunct Mercury</b> (owns 9th/11th, occupies 5th) + <b>Star lord Jupiter</b> (owns 3rd/5th, occupies 6th)
+      + <b>Sub-lord Sun</b> (sub-lord of 1st) — with Rahu's own direct sub-lordship of the 11th cusp.
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 — Sub-lord</th><th>Tier 2 — Occupant</th><th>Tier 3 — Owner</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">11th</td><td class="tier1cell">Rahu (self), Mercury</td><td class="empty">—</td><td class="tier3cell">Mercury</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="empty">—</td><td class="tier2cell">Rahu, Mercury</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">12th</td><td class="tier1cell">Mercury</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter, Sun</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">9</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">10</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">11</td><td class="house-cell">9th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mercury</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>7th</b> only.</div>
+  </div>
+
+  <!-- MARS -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Mars — Mahadasha Significators</div>
+      <div class="planet-meta">Owns 2nd, 6th, 7th · occupies 3rd</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 3rd, owns 2/6/7, sub-lord of 5/7) + <b>Star lord Sun</b> (occupies 6th, sub-lord of 1st)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 — Sub-lord</th><th>Tier 2 — Occupant</th><th>Tier 3 — Owner</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">7th</td><td class="tier1cell">Mars (self)</td><td class="empty">—</td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="tier1cell">Mars (self)</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun, Jupiter</td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="tier2cell">Mars (self)</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">2nd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mars (self)</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>4th, 8th, 9th, 10th, 11th, 12th</b>.</div>
+  </div>
+
+  <h1 style="font-size:1.4rem; margin-top: 44px;">Remaining Seven Planets</h1>
+  <div class="subtitle" style="margin-bottom:24px;">Same chain logic — self + star lord + sub-lord (+ conjunct planet where relevant)</div>
+
+  <!-- SUN -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Sun</div>
+      <div class="planet-meta">Owns no cusp · occupies 6th · conjunct Jupiter</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 6th, sub-lord of 1st) + <b>Star lord Saturn</b> (owns 4th, occupies 2nd, sub-lord of 2/4/8/10)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun (self), Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>7th, 9th, 11th, 12th</b>.</div>
+  </div>
+
+  <!-- MOON -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Moon</div>
+      <div class="planet-meta">Owns 10th · occupies 11th · conjunct Ketu</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 11th, owns 10th, sub-lord of 3rd) + <b>Star lord Venus</b> (owns 1st/8th/12th, occupies 7th, sub-lord of 6th/9th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Moon (self)</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">1st</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">10th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Moon (self)</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">12th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>2nd, 4th, 5th</b>.</div>
+  </div>
+
+  <!-- MERCURY -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Mercury</div>
+      <div class="planet-meta">Owns 9th, 11th · occupies 5th · conjunct Rahu</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 5th, owns 9th/11th, sub-lord of 12th) + <b>Star lord Jupiter</b> (owns 3rd/5th, occupies 6th)
+      + <b>Sub-lord Venus</b> (owns 1st/8th/12th, occupies 7th, sub-lord of 6th/9th) + <b>Conjunct Rahu</b> (occupies 5th, sub-lord of 11th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">5th</td><td class="empty">—</td><td class="tier2cell">Mercury (self), Rahu</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="tier2cell">Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="tier3cell">Mercury (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">11th</td><td class="tier1cell">Rahu</td><td class="empty">—</td><td class="tier3cell">Mercury (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">12th</td><td class="tier1cell">Mercury (self)</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>2nd, 4th, 10th</b>.</div>
+  </div>
+
+  <!-- JUPITER -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Jupiter</div>
+      <div class="planet-meta">Owns 3rd, 5th · occupies 6th · conjunct Sun</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 6th, owns 3rd/5th) + <b>Star lord Ketu</b> (occupies 11th) + <b>Sub-lord Saturn</b>
+      (owns 4th, occupies 2nd, sub-lord of 2/4/8/10) + <b>Conjunct Sun</b> (occupies 6th, sub-lord of 1st).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter (self), Sun</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter (self)</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter (self)</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>7th, 9th, 12th</b>.</div>
+  </div>
+
+  <!-- VENUS -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Venus</div>
+      <div class="planet-meta">Owns 1st, 8th, 12th · occupies 7th (alone)</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 7th, owns 1st/8th/12th, sub-lord of 6th/9th) + <b>Star lord Sun</b> (occupies 6th, sub-lord of 1st)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus (self)</td><td class="tier2cell">Sun, Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus (self)</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">12th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>2nd, 4th, 10th, 11th</b>.</div>
+  </div>
+
+  <!-- SATURN -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Saturn</div>
+      <div class="planet-meta">Owns 4th (Parashari yogakaraka 4/5) · occupies 2nd</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 2nd, owns 4th, sub-lord of 2/4/8/10) + <b>Star lord Ketu</b> (occupies 11th)
+      + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn (self)</td><td class="tier2cell">Saturn (self)</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="tier3cell">Saturn (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">8th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">10th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>1st, 7th, 9th, 12th</b>.</div>
+  </div>
+
+  <!-- KETU -->
+  <div class="planet-card">
+    <div class="planet-header">
+      <div class="planet-name">Ketu</div>
+      <div class="planet-meta">Node · owns no sign · occupies 11th · conjunct Moon</div>
+    </div>
+    <div class="chain-note">
+      Chain: <b>Self</b> (occupies 11th) + <b>Dispositor / star lord Sun</b> (Ketu in Leo — occupies 6th, sub-lord of 1st)
+      + <b>Sub-lord Mars</b> (owns 2nd/6th/7th, occupies 3rd, sub-lord of 5th/7th) + <b>Conjunct Moon</b> (owns 10th, occupies 11th, sub-lord of 3rd).
+    </div>
+    <table>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
+      <tbody>
+        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon</td><td class="tier2cell">Mars</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">7th</td><td class="tier1cell">Mars</td><td class="empty">—</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu (self), Moon</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">5th</td><td class="tier1cell">Mars</td><td class="empty">—</td><td class="empty">—</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">2nd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">10th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Moon</td></tr>
+      </tbody>
+    </table>
+    <div class="untouched">Untouched: <b>4th, 8th, 9th, 12th</b>.</div>
+  </div>
+
+  <h1 style="font-size:1.4rem; margin-top: 44px;">Dasha · Bhukti Activation</h1>
+  <div class="subtitle" style="margin-bottom:24px;">For a Mahadasha (MD) lord, the houses it signifies come from its own chain (self + star lord + sub-lord + any conjunct planet). During each Antardasha (AD) inside that Mahadasha, the AD lord's own chain becomes active too, and results for the period come from the combination of both sets of houses. Sequence follows the fixed Vimshottari order (Ke, Ve, Su, Mo, Ma, Ra, Ju, Sa, Me, back to Ke), starting from the Mahadasha lord itself. No timing or duration is given here, only which houses turn on.</div>
+
+  <div class="db-legend">
+    <span><span class="db-dot both"></span>Both MD & AD lord touch this house</span>
+    <span><span class="db-dot md"></span>MD lord only</span>
+    <span><span class="db-dot ad"></span>AD lord only</span>
+    <span><span class="db-dot none"></span>Untouched this period</span>
   </div>
 
   <!-- MARS MAHADASHA -->
-  <div class="planet-card">
-    <div class="planet-header">
-      <div class="planet-name">Mars Mahadasha</div>
-      <div class="planet-meta">Cuspal sub-lord of 5th &amp; 7th · owns 2nd/6th/7th · occupies 3rd</div>
+  <div class="db-planet-card">
+    <div class="db-planet-header">
+      <div class="db-planet-name">Mars Mahadasha</div>
+      <div class="db-planet-meta">Cuspal sub-lord of 5th &amp; 7th · owns 2nd/6th/7th · occupies 3rd</div>
     </div>
-    <div class="chain-note">Antardasha order: <b>Ma → Ra → Ju → Sa → Me → Ke → Ve → Su → Mo</b></div>
+    <div class="db-chain-note">Antardasha order: <b>Ma → Ra → Ju → Sa → Me → Ke → Ve → Su → Mo</b></div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Mars</div>
-      <div class="ad-gap">Mars's own significators only</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-none">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-both">7</div><div class="h-cell h-none">8</div><div class="h-cell h-none">9</div>
-        <div class="h-cell h-none">10</div><div class="h-cell h-none">11</div><div class="h-cell h-none">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Mars</div>
+      <div class="db-ad-gap">Mars's own significators only</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell none">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell both">7</div><div class="db-h-cell none">8</div><div class="db-h-cell none">9</div>
+        <div class="db-h-cell none">10</div><div class="db-h-cell none">11</div><div class="db-h-cell none">12</div>
       </div>
-      <div class="see-card">See Mars card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
-    </div>
-
-    <div class="ad-block">
-      <div class="ad-title">Mars → Rahu</div>
-      <div class="ad-gap">Full activation, all 12 houses touched (AD lord fills the 4th/8th/9th/10th/11th/12th gap)</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-ad">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-md">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-ad">9</div>
-        <div class="h-cell h-ad">10</div><div class="h-cell h-ad">11</div><div class="h-cell h-ad">12</div>
-      </div>
-      <div class="see-card">See Rahu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Mars card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Jupiter</div>
-      <div class="ad-gap">Gap: <b>9th/12th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-ad">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-md">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-none">9</div>
-        <div class="h-cell h-ad">10</div><div class="h-cell h-ad">11</div><div class="h-cell h-none">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Rahu</div>
+      <div class="db-ad-gap">Full activation, all 12 houses touched (AD lord fills the 4th/8th/9th/10th/11th/12th gap)</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell ad">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell md">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell ad">9</div>
+        <div class="db-h-cell ad">10</div><div class="db-h-cell ad">11</div><div class="db-h-cell ad">12</div>
       </div>
-      <div class="see-card">See Jupiter card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Rahu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Saturn</div>
-      <div class="ad-gap">Gap: <b>9th/12th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-md">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-ad">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-md">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-none">9</div>
-        <div class="h-cell h-ad">10</div><div class="h-cell h-ad">11</div><div class="h-cell h-none">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Jupiter</div>
+      <div class="db-ad-gap">Gap: <b>9th/12th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell ad">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell md">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell none">9</div>
+        <div class="db-h-cell ad">10</div><div class="db-h-cell ad">11</div><div class="db-h-cell none">12</div>
       </div>
-      <div class="see-card">See Saturn card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Jupiter card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Mercury</div>
-      <div class="ad-gap">Gap: <b>4th/10th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-md">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-none">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-both">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-ad">9</div>
-        <div class="h-cell h-none">10</div><div class="h-cell h-ad">11</div><div class="h-cell h-ad">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Saturn</div>
+      <div class="db-ad-gap">Gap: <b>9th/12th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell md">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell ad">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell md">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell none">9</div>
+        <div class="db-h-cell ad">10</div><div class="db-h-cell ad">11</div><div class="db-h-cell none">12</div>
       </div>
-      <div class="see-card">See Mercury card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Saturn card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Ketu</div>
-      <div class="ad-gap">Gap: <b>4th/8th/9th/12th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-none">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-both">7</div><div class="h-cell h-none">8</div><div class="h-cell h-none">9</div>
-        <div class="h-cell h-ad">10</div><div class="h-cell h-ad">11</div><div class="h-cell h-none">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Mercury</div>
+      <div class="db-ad-gap">Gap: <b>4th/10th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell md">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell none">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell both">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell ad">9</div>
+        <div class="db-h-cell none">10</div><div class="db-h-cell ad">11</div><div class="db-h-cell ad">12</div>
       </div>
-      <div class="see-card">See Ketu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Mercury card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Venus</div>
-      <div class="ad-gap">Gap: <b>4th/10th/11th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-md">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-none">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-both">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-ad">9</div>
-        <div class="h-cell h-none">10</div><div class="h-cell h-none">11</div><div class="h-cell h-ad">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Ketu</div>
+      <div class="db-ad-gap">Gap: <b>4th/8th/9th/12th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell none">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell both">7</div><div class="db-h-cell none">8</div><div class="db-h-cell none">9</div>
+        <div class="db-h-cell ad">10</div><div class="db-h-cell ad">11</div><div class="db-h-cell none">12</div>
       </div>
-      <div class="see-card">See Venus card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Ketu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Sun</div>
-      <div class="ad-gap">Gap: <b>9th/11th/12th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-ad">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-md">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-none">9</div>
-        <div class="h-cell h-ad">10</div><div class="h-cell h-none">11</div><div class="h-cell h-none">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Venus</div>
+      <div class="db-ad-gap">Gap: <b>4th/10th/11th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell md">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell none">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell both">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell ad">9</div>
+        <div class="db-h-cell none">10</div><div class="db-h-cell none">11</div><div class="db-h-cell ad">12</div>
       </div>
-      <div class="see-card">See Sun card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Venus card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Mars → Moon</div>
-      <div class="ad-gap">Gap: <b>4th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-md">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-none">4</div><div class="h-cell h-md">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-both">7</div><div class="h-cell h-ad">8</div><div class="h-cell h-ad">9</div>
-        <div class="h-cell h-ad">10</div><div class="h-cell h-ad">11</div><div class="h-cell h-ad">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Sun</div>
+      <div class="db-ad-gap">Gap: <b>9th/11th/12th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell ad">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell md">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell none">9</div>
+        <div class="db-h-cell ad">10</div><div class="db-h-cell none">11</div><div class="db-h-cell none">12</div>
       </div>
-      <div class="see-card">See Moon card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Sun card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+
+    <div class="db-ad-block">
+      <div class="db-ad-title">Mars → Moon</div>
+      <div class="db-ad-gap">Gap: <b>4th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell md">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell none">4</div><div class="db-h-cell md">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell both">7</div><div class="db-h-cell ad">8</div><div class="db-h-cell ad">9</div>
+        <div class="db-h-cell ad">10</div><div class="db-h-cell ad">11</div><div class="db-h-cell ad">12</div>
+      </div>
+      <div class="db-see-card">See Moon card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
   </div>
 
   <!-- RAHU MAHADASHA -->
-  <div class="planet-card">
-    <div class="planet-header">
-      <div class="planet-name">Rahu Mahadasha</div>
-      <div class="planet-meta">Cuspal sub-lord of 11th · occupies 5th · dispositor Saturn (owns 4th) · conjunct Mercury</div>
+  <div class="db-planet-card">
+    <div class="db-planet-header">
+      <div class="db-planet-name">Rahu Mahadasha</div>
+      <div class="db-planet-meta">Cuspal sub-lord of 11th · occupies 5th · dispositor Saturn (owns 4th) · conjunct Mercury</div>
     </div>
-    <div class="chain-note">Antardasha order: <b>Ra → Ju → Sa → Me → Ke → Ve → Su → Mo → Ma</b></div>
+    <div class="db-chain-note">Antardasha order: <b>Ra → Ju → Sa → Me → Ke → Ve → Su → Mo → Ma</b></div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Rahu</div>
-      <div class="ad-gap">Rahu's own significators only</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-both">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-none">7</div><div class="h-cell h-both">8</div><div class="h-cell h-both">9</div>
-        <div class="h-cell h-both">10</div><div class="h-cell h-both">11</div><div class="h-cell h-both">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Rahu</div>
+      <div class="db-ad-gap">Rahu's own significators only</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell both">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell none">7</div><div class="db-h-cell both">8</div><div class="db-h-cell both">9</div>
+        <div class="db-h-cell both">10</div><div class="db-h-cell both">11</div><div class="db-h-cell both">12</div>
       </div>
-      <div class="see-card">See Rahu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
-    </div>
-
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Jupiter</div>
-      <div class="ad-gap">Gap: <b>7th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-both">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-none">7</div><div class="h-cell h-both">8</div><div class="h-cell h-md">9</div>
-        <div class="h-cell h-both">10</div><div class="h-cell h-both">11</div><div class="h-cell h-md">12</div>
-      </div>
-      <div class="see-card">See Jupiter card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Rahu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Saturn</div>
-      <div class="ad-gap">Gap: <b>7th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-md">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-both">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-none">7</div><div class="h-cell h-both">8</div><div class="h-cell h-md">9</div>
-        <div class="h-cell h-both">10</div><div class="h-cell h-both">11</div><div class="h-cell h-md">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Jupiter</div>
+      <div class="db-ad-gap">Gap: <b>7th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell both">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell none">7</div><div class="db-h-cell both">8</div><div class="db-h-cell md">9</div>
+        <div class="db-h-cell both">10</div><div class="db-h-cell both">11</div><div class="db-h-cell md">12</div>
       </div>
-      <div class="see-card">See Saturn card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Jupiter card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Mercury</div>
-      <div class="ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-md">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-md">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-ad">7</div><div class="h-cell h-both">8</div><div class="h-cell h-both">9</div>
-        <div class="h-cell h-md">10</div><div class="h-cell h-both">11</div><div class="h-cell h-both">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Saturn</div>
+      <div class="db-ad-gap">Gap: <b>7th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell md">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell both">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell none">7</div><div class="db-h-cell both">8</div><div class="db-h-cell md">9</div>
+        <div class="db-h-cell both">10</div><div class="db-h-cell both">11</div><div class="db-h-cell md">12</div>
       </div>
-      <div class="see-card">See Mercury card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Saturn card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Ketu</div>
-      <div class="ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-md">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-ad">7</div><div class="h-cell h-md">8</div><div class="h-cell h-md">9</div>
-        <div class="h-cell h-both">10</div><div class="h-cell h-both">11</div><div class="h-cell h-md">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Mercury</div>
+      <div class="db-ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell md">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell md">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell ad">7</div><div class="db-h-cell both">8</div><div class="db-h-cell both">9</div>
+        <div class="db-h-cell md">10</div><div class="db-h-cell both">11</div><div class="db-h-cell both">12</div>
       </div>
-      <div class="see-card">See Ketu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Mercury card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Venus</div>
-      <div class="ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-md">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-md">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-ad">7</div><div class="h-cell h-both">8</div><div class="h-cell h-both">9</div>
-        <div class="h-cell h-md">10</div><div class="h-cell h-md">11</div><div class="h-cell h-both">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Ketu</div>
+      <div class="db-ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell md">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell ad">7</div><div class="db-h-cell md">8</div><div class="db-h-cell md">9</div>
+        <div class="db-h-cell both">10</div><div class="db-h-cell both">11</div><div class="db-h-cell md">12</div>
       </div>
-      <div class="see-card">See Venus card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Ketu card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Sun</div>
-      <div class="ad-gap">Gap: <b>7th</b> untouched</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-both">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-none">7</div><div class="h-cell h-both">8</div><div class="h-cell h-md">9</div>
-        <div class="h-cell h-both">10</div><div class="h-cell h-md">11</div><div class="h-cell h-md">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Venus</div>
+      <div class="db-ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell md">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell md">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell ad">7</div><div class="db-h-cell both">8</div><div class="db-h-cell both">9</div>
+        <div class="db-h-cell md">10</div><div class="db-h-cell md">11</div><div class="db-h-cell both">12</div>
       </div>
-      <div class="see-card">See Sun card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Venus card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Moon</div>
-      <div class="ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-md">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-md">4</div><div class="h-cell h-md">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-ad">7</div><div class="h-cell h-both">8</div><div class="h-cell h-both">9</div>
-        <div class="h-cell h-both">10</div><div class="h-cell h-both">11</div><div class="h-cell h-both">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Sun</div>
+      <div class="db-ad-gap">Gap: <b>7th</b> untouched</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell both">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell none">7</div><div class="db-h-cell both">8</div><div class="db-h-cell md">9</div>
+        <div class="db-h-cell both">10</div><div class="db-h-cell md">11</div><div class="db-h-cell md">12</div>
       </div>
-      <div class="see-card">See Moon card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Sun card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
 
-    <div class="ad-block">
-      <div class="ad-title">Rahu → Mars</div>
-      <div class="ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
-      <div class="house-grid">
-        <div class="h-cell h-both">1</div><div class="h-cell h-both">2</div><div class="h-cell h-both">3</div>
-        <div class="h-cell h-md">4</div><div class="h-cell h-both">5</div><div class="h-cell h-both">6</div>
-        <div class="h-cell h-ad">7</div><div class="h-cell h-md">8</div><div class="h-cell h-md">9</div>
-        <div class="h-cell h-md">10</div><div class="h-cell h-md">11</div><div class="h-cell h-md">12</div>
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Moon</div>
+      <div class="db-ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell md">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell md">4</div><div class="db-h-cell md">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell ad">7</div><div class="db-h-cell both">8</div><div class="db-h-cell both">9</div>
+        <div class="db-h-cell both">10</div><div class="db-h-cell both">11</div><div class="db-h-cell both">12</div>
       </div>
-      <div class="see-card">See Mars card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+      <div class="db-see-card">See Moon card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+
+    <div class="db-ad-block">
+      <div class="db-ad-title">Rahu → Mars</div>
+      <div class="db-ad-gap">Full activation, all 12 houses touched (AD lord fills the 7th gap)</div>
+      <div class="db-house-grid">
+        <div class="db-h-cell both">1</div><div class="db-h-cell both">2</div><div class="db-h-cell both">3</div>
+        <div class="db-h-cell md">4</div><div class="db-h-cell both">5</div><div class="db-h-cell both">6</div>
+        <div class="db-h-cell ad">7</div><div class="db-h-cell md">8</div><div class="db-h-cell md">9</div>
+        <div class="db-h-cell md">10</div><div class="db-h-cell md">11</div><div class="db-h-cell md">12</div>
+      </div>
+      <div class="db-see-card">See Mars card for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
     </div>
   </div>
+
+  <h1 class="th-h1">Overall Theme Comparison — Rahu Mahadasha vs. Mars Mahadasha</h1>
+  <div class="subtitle" style="margin-bottom:24px;">The big-picture pattern, independent of which Antardasha is running</div>
+  <div class="th-overview-grid">
+    <div class="th-overview-card">
+      <div class="th-planet-label">Rahu Mahadasha</div>
+      <h3>Wealth, property, status &amp; foreign linkage</h3>
+      <p>Rahu itself carries 2, 4, 8, 10, 11, 12 as strong houses. Since Rahu is the Mahadasha lord throughout, this baseline pull toward money, property, career status, sudden gains, and cross-border matters is present in every Antardasha of the cycle, it never fully disappears. Some Antardashas amplify it heavily (Rahu-Jupiter, Rahu-Saturn), some soften it (Rahu-Mars), but the underlying current holds.</p>
+      <p>Structurally weak for the whole Mahadasha: marriage / partnership. Rahu does not touch the 7th house at all, so relationship progress only surfaces when the Antardasha lord happens to supply it (Venus, Moon, Mercury, Mars) — outside those four sub-periods, partnership matters tend to stall.</p>
+    </div>
+    <div class="th-overview-card">
+      <div class="th-planet-label">Mars Mahadasha</div>
+      <h3>Self-drive, competition, speculation &amp; relationships</h3>
+      <p>Mars itself only carries 1, 3, 5, 6, 7 as strong houses, notably including the 7th. So the baseline pull toward partnership and relationship activity is present in every Antardasha here, because Mars is always reinforcing it.</p>
+      <p>Structurally weak for the whole Mahadasha: wealth, property, career status, and foreign matters — Mars's own signification barely touches 2, 4, 8, 9, 10, 11, or 12. Those themes swing hard depending on the Antardasha lord: nearly silent in Mars-Mars, Mars-Ketu, Mars-Sun; strongly activated in Mars-Rahu, Mars-Jupiter, Mars-Saturn, and especially Mars-Mercury.</p>
+    </div>
+  </div>
+  <div class="th-quote">In one line: Rahu Mahadasha is the more financially/materially consistent era, with relationships as the wildcard. Mars Mahadasha is the more relationally/personally consistent era, with wealth and career as the wildcard.</div>
+  <h1 class="th-h1">Rahu &amp; Mars Mahadasha — Antardasha Theme Analysis</h1>
+  <div class="subtitle" style="margin-bottom:16px;">What becomes active, sub-period by sub-period, based on combined house signification</div>
+  <div class="th-method"><b>Method.</b> For each Mahadasha–Antardasha pair, the house list above for each planet is combined. Houses signified by both planets (shown in gold) are the strongest and most reliably activated during that sub-period; houses signified by only one planet are secondary support. That combined house list is then read against the standard KP event groupings established earlier: 7 / 2-11 marriage, 10 / 2-6-11 career &amp; business, 11 / 2-6-10 funding &amp; gains, 11 / 3-9-12 foreign investment, 2 / 6-11 wealth, 2-11 (with 5-9-10 support, avoiding heavy 8/12) millionaire-tier wealth, 5 / 2-11 childbirth, 1 / 11 good health, 1 / 6-8-12 disease or health crisis, 3-9-12 foreign travel, 3-4-9-12 foreign settlement, 4 / 11-12 property, and 3-6-9-11 litigation/contracts. This is a signification-based reading only — it does not account for planetary strength, retrogression, combustion, aspects, or the actual cuspal sub-lord chain of a real chart, so treat it as a thematic map of what is on the table during each sub-period, not a certainty.</div>
+  <div class="th-mahadasha-heading">Rahu Mahadasha</div>
+  <div class="th-mahadasha-intro">Rahu's own signification: 1, 2, 4, 5, 6, 8, 10, 11, 12 (strong) · 3, 9 (weak) · 7th untouched. Antardashas in standard Vimshottari order: Rahu → Jupiter → Saturn → Mercury → Ketu → Venus → Sun → Moon → Mars.</div>
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Rahu</div>
+        <div class="th-ad-tag">Peak Rahu signature</div>
+      </div>
+      <div class="th-ad-combined">Combined (self only): 1, 2, 4, 5, 6, 8, 10, 11, 12. 7th remains completely untouched.</div>
+      <ul class="th-ad-bullets">
+        <li>Wealth accumulation (2, 11)</li>
+        <li>Foreign / cross-border dealings (4, 12)</li>
+        <li>Speculative or unconventional income (5)</li>
+        <li>Status / career shift (10)</li>
+        <li>Sudden gains, inheritance (8)</li>
+        <li>Marriage / partnership — unsupported</li>
+      </ul>
+      <div class="th-ad-text">This is Rahu operating at full, undiluted strength, so it is the clearest single window for Rahu's own signature results: unconventional or outsized gains, foreign-linked money, property or import/export activity, and a general willingness to break from convention to get ahead. The 2-11 overlap makes this a genuinely strong wealth-and-gain period, and 4+12 together lean toward foreign investment, foreign property, or expenditure abroad. Caution: 6-8-12 are all active simultaneously, which is the classical health/legal-stress combination, so physical strain, disputes, or financial leakage can run alongside the gains. The 7th house (marriage, partnerships, direct business dealings) gets zero support from Rahu itself here, so relationship or partnership matters tend to stall or feel one-sided in this sub-period unless another running period is compensating.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Jupiter</div>
+        <div class="th-ad-tag">Strongest career/wealth window in this Mahadasha</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Jupiter: 1,2,4,6,8,10,11 (weak 3,5 · untouched 7,9,12). Overlap: 1, 2, 4, 6, 8, 10, 11 — seven of nine houses reinforced by both planets.</div>
+      <ul class="th-ad-bullets">
+        <li>Career advancement / promotion (2,6,10,11)</li>
+        <li>Property acquisition (4)</li>
+        <li>Financial windfall / inheritance (8)</li>
+        <li>Business growth &amp; funding (2,6,10,11)</li>
+        <li>Foreign travel — only weakly present (9 weak on both)</li>
+        <li>Marriage — untouched by Jupiter, weak overall</li>
+      </ul>
+      <div class="th-ad-text">This is arguably the strongest all-round period in the entire Rahu Mahadasha for the career-and-money group. The near-total overlap on 1-2-4-6-8-10-11 stacks almost the entire "job/business/wealth" house group (2-6-10-11) on top of self-effort (1), property (4), and sudden gain (8). This reads as a genuine promotion, business-expansion, or funding-round window, and a good period to pursue a millionaire-tier wealth push, since 2 and 11 are both doubly reinforced. Interestingly, despite Jupiter's natural karakatva for the 9th house (luck, higher learning, long journeys), it is not structurally reinforced in this chart's chain, so foreign/higher-education themes stay muted here even though the wealth themes are strong.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Saturn</div>
+        <div class="th-ad-tag">Slow, structural wealth &amp; property builder</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Saturn: 2,3,4,5,6,8,10,11 (untouched 1,7,9,12). Overlap: 2, 4, 5, 6, 8, 10, 11.</div>
+      <ul class="th-ad-bullets">
+        <li>Long-term wealth building (2,11)</li>
+        <li>Property / real estate (4)</li>
+        <li>Speculative gains tied to children or creativity (5)</li>
+        <li>Sudden gain or inheritance (8)</li>
+        <li>Career consolidation (6,10)</li>
+        <li>Self-image, partnership, foreign — all weak or untouched</li>
+      </ul>
+      <div class="th-ad-text">Seven houses overlap here, and the flavor is distinctly Saturnine: slower, more effortful, but structurally sound. This period favors accumulating assets rather than a single dramatic windfall, real estate purchases, methodical career consolidation, and steady growth of savings/investments (2-11). The 5th house being doubly reinforced also opens a genuine speculative or investment-return theme, not just childbirth. Because both planets leave 1, 7, 9, and 12 weak or untouched, this is not a strong period for identity-level reinvention, marriage, or foreign relocation, the gains here are mostly domestic and asset-based.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Mercury</div>
+        <div class="th-ad-tag">Contracts, partnerships &amp; foreign-linked business</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Mercury: 1,3,5,6,7,8,9,11,12 (untouched 2,4,10). Overlap: 1, 5, 6, 8, 11, 12; Mercury alone brings in 3, 7, 9.</div>
+      <ul class="th-ad-bullets">
+        <li>Foreign investment / funding (11,3,9,12)</li>
+        <li>Business partnerships &amp; contracts (7)</li>
+        <li>Foreign travel / higher education abroad (9)</li>
+        <li>Sudden gains (8)</li>
+        <li>Short-distance movement, negotiation (3)</li>
+        <li>Direct property purchase (4) — untouched by Mercury</li>
+      </ul>
+      <div class="th-ad-text">Mercury is the antardasha that finally activates the 3-9-12 foreign-travel group together with Rahu's own 12th, plus it brings the 7th house (partnership, marriage, direct dealing with others) into play, something Rahu alone in this chart cannot do. This makes it a strong window for foreign-linked business deals, cross-border funding or investment, contract signings, and partnership formation, whether that's a co-founder, a spouse, or a formal business tie-up. It is one of the better antardashas in this Mahadasha for the specific "foreign investment / funding from abroad" theme, since it stacks 3, 9, 11, and 12 together.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Ketu</div>
+        <div class="th-ad-tag">Transitional / karmic-axis period</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Ketu: 1,3,5,6,7,11 (weak 2,10 · untouched 4,8,9,12). Overlap: 1, 5, 6, 11; Ketu adds 3, 7 that Rahu doesn't have.</div>
+      <ul class="th-ad-bullets">
+        <li>Fulfillment of a specific goal (11)</li>
+        <li>Self-driven effort, competitive success (1,6)</li>
+        <li>Short travel, relationship activity (3,7)</li>
+        <li>Property, foreign settlement, big windfalls — mostly untouched</li>
+      </ul>
+      <div class="th-ad-text">Running Rahu-Ketu together (the two nodes) is classically read as a transitional or closure-oriented stretch rather than a clean expansion period. The overlap is narrower than the other Rahu antardashas, and neither planet reinforces property (4), sudden windfalls (8), higher learning/foreign luck (9), or foreign settlement (12) here, so this tends to be a period of finishing or resolving existing matters (fulfillment of a specific desire via 11, competitive or self-effort wins via 1/6) rather than opening major new fronts in wealth, property, or foreign expansion. Partnership and short-distance movement (3,7, via Ketu) do get some activation.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Venus</div>
+        <div class="th-ad-tag">Best marriage / foreign-luxury window in this Mahadasha</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Venus: 1,3,5,6,7,8,9,12 (untouched 2,4,10,11). Overlap: 1, 5, 6, 8, 12; Venus alone strongly brings 7, 9, 3.</div>
+      <ul class="th-ad-bullets">
+        <li>Marriage / romantic partnership (7)</li>
+        <li>Foreign travel, luck, luxury (9)</li>
+        <li>Foreign settlement / expenditure abroad (12)</li>
+        <li>Speculative or creative gains (5)</li>
+        <li>Inheritance or sudden gain (8)</li>
+        <li>Pure career/status growth (10) — untouched by Venus</li>
+      </ul>
+      <div class="th-ad-text">Venus is the antardasha within Rahu Mahadasha most worth flagging for relationship questions: it is the only Rahu sub-period where the 7th house gets real, direct support (from Venus, Venus's natural signification for marriage adds further weight). Combined with Rahu's own 9-adjacent and 12th-house strength, this period also favors foreign travel, luxury acquisition, or settling abroad, and the 5-8 overlap adds a romantic/speculative-gain flavor. If marriage or a significant relationship commitment is "due" in this Mahadasha, this is the most natural antardasha for it to land in. Pure career or status elevation (10) is comparatively quiet here, since Venus doesn't reinforce it.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Sun</div>
+        <div class="th-ad-tag">Authority, status &amp; property, less foreign/gains</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Sun: 1,2,4,6,8,10 (weak 3,5 · untouched 7,9,11,12). Overlap: 1, 2, 4, 6, 8, 10.</div>
+      <ul class="th-ad-bullets">
+        <li>Status, recognition, authority (10)</li>
+        <li>Property (4)</li>
+        <li>Family wealth / accumulated assets (2)</li>
+        <li>Sudden gain (8)</li>
+        <li>Gains / fulfillment of desire (11) — untouched by Sun</li>
+        <li>Foreign matters (9,12) — untouched by Sun</li>
+      </ul>
+      <div class="th-ad-text">A strong six-house overlap gives this period real weight for status, authority, and property, this suits dealings with officials, government, or senior figures, and property matters tied to status (buying a home that reflects position, for instance). But because Sun leaves 11 and 12 untouched despite Rahu being strong there, this period tends to under-deliver on the "big gain" and "foreign" fronts relative to other antardashas in this Mahadasha, the wins here are more about position and asset value than liquid windfalls. The 6-8 overlap also means health or legal friction is worth watching.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Moon</div>
+        <div class="th-ad-tag">Strongest foreign-travel/settlement window in this Mahadasha</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Moon: 1,3,6,7,8,9,10,11,12 (untouched 2,4,5). Overlap: 1, 6, 8, 10, 11, 12; Moon adds 3, 7, 9 strongly.</div>
+      <ul class="th-ad-bullets">
+        <li>Foreign travel &amp; settlement (3,9,12 — full group)</li>
+        <li>Marriage / partnership (7)</li>
+        <li>Career &amp; public recognition (10)</li>
+        <li>Gains / fulfillment (11)</li>
+        <li>Sudden events (8)</li>
+        <li>Direct property purchase (4) — untouched</li>
+      </ul>
+      <div class="th-ad-text">This is the single antardasha across the whole Rahu Mahadasha where the complete 3-9-12 foreign-travel-and-settlement group is activated together, since Moon brings 3 and 9 while Rahu supplies 12, and both reinforce it further through the overlap on 1, 6, 8, 10, 11. If foreign relocation, an overseas career move, or a long-distance journey is going to happen in this Mahadasha, this antardasha is the strongest structural candidate for it. It also carries real partnership (7) and career (10) weight, so a foreign opportunity tied to work or marriage is a plausible combined reading. Property purchase in the ordinary domestic sense (4) is not supported here, if property comes up, it likely relates to a foreign or transitional living situation rather than a settled home purchase.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Rahu → Mars</div>
+        <div class="th-ad-tag">Conflict, competition &amp; effort, not a big-wealth window</div>
+      </div>
+      <div class="th-ad-combined">Rahu: 1,2,4,5,6,8,10,11,12 · Mars: 1,3,5,6,7 (untouched 2,4,8,9,10,11,12). Overlap: 1, 5, 6; Mars adds 3, 7 that Rahu barely or doesn't touch.</div>
+      <ul class="th-ad-bullets">
+        <li>Competitive drive, disputes, litigation (6)</li>
+        <li>Courage-driven short travel (3)</li>
+        <li>Relationship or business friction (7)</li>
+        <li>Property, career elevation, big wealth, foreign — all unsupported by Mars</li>
+      </ul>
+      <div class="th-ad-text">This is the weakest antardasha in the Rahu Mahadasha for the wealth, property, career, and foreign themes that dominate the rest of the period, Mars simply doesn't reinforce Rahu's houses 2, 4, 8, 10, 11, or 12. What it does bring is friction: competitive pressure, potential disputes or legal matters (6), assertive short-distance activity (3), and a partnership house (7) that is active but through Mars's more combative signature rather than Venus's harmonious one, so relationship or business-partner conflict is more likely than romantic progress here. Health and accident-caution is also worth flagging given Mars's natural karakatva combined with 6th-house activation. Best read as a period to manage disputes and stay disciplined rather than to expect major financial breakthroughs.</div>
+    </div>
+
+  <div class="th-mahadasha-heading">Mars Mahadasha</div>
+  <div class="th-mahadasha-intro">Mars's own signification: 1, 3, 5, 6, 7 (strong) · 2 weak · 4, 8, 9, 10, 11, 12 untouched. Antardashas in standard Vimshottari order: Mars → Rahu → Jupiter → Saturn → Mercury → Ketu → Venus → Sun → Moon.</div>
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Mars</div>
+        <div class="th-ad-tag">Personal drive, narrow scope</div>
+      </div>
+      <div class="th-ad-combined">Combined (self only): 1, 3, 5, 6, 7. Houses 2, 4, 8, 9, 10, 11, 12 all untouched.</div>
+      <ul class="th-ad-bullets">
+        <li>Self-assertion, initiative (1)</li>
+        <li>Short travel, courage, communication (3)</li>
+        <li>Romance, speculation, children (5)</li>
+        <li>Competition, disputes (6)</li>
+        <li>Partnership / marriage, open conflict (7)</li>
+        <li>Wealth, property, career elevation, foreign — all untouched</li>
+      </ul>
+      <div class="th-ad-text">Mars at full, undiluted strength is a personally active but structurally narrow period. It is genuinely useful for initiating things: starting a relationship or business partnership (7), pursuing a competitive goal (6), or making a courage-driven move (3, 1), and it carries real romantic/speculative energy (5). But because 2, 4, 8, 9, 10, 11, and 12 are all untouched by Mars alone, this is not a period where major financial windfalls, property deals, career promotions, or foreign opportunities are structurally supported, whatever happens on those fronts will be riding on other running periods (Bhukti/Antara), not on Mars-Mars itself.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Rahu</div>
+        <div class="th-ad-tag">Major scope expansion — wealth, property, foreign gains open up</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Rahu: 1,2,4,5,6,8,10,11,12 (weak 3,9 · untouched 7). Overlap: 1, 5, 6; Rahu alone adds 2, 4, 8, 10, 11, 12 that Mars-Mars completely lacked.</div>
+      <ul class="th-ad-bullets">
+        <li>Wealth, property, career elevation — newly activated (2,4,10,11)</li>
+        <li>Sudden or unconventional gains (8)</li>
+        <li>Foreign-linked matters, though weaker (12, weak 9)</li>
+        <li>Assertive, unconventional partnership dynamics (7, Mars side only)</li>
+        <li>Partnership lacks Rahu's reinforcement (7 untouched by Rahu)</li>
+      </ul>
+      <div class="th-ad-text">This antardasha is the clearest upgrade in the entire Mars Mahadasha for wealth, property, and career, Rahu brings in the whole set of houses (2,4,8,10,11,12) that pure Mars-Mars could not touch. Expect the possibility of an aggressive but genuine leap: unconventional income, a property deal, or a career jump, layered on top of Mars's own courage and competitive drive. One nuance worth noting: the 7th house is strong through Mars but completely untouched by Rahu, so any partnership or relationship activity in this period is likely to carry an assertive, unconventional, or one-sided quality rather than a smooth, mutually-supported one.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Jupiter</div>
+        <div class="th-ad-tag">Career and wealth growth, disciplined</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Jupiter: 1,2,4,6,8,10,11 (weak 3,5 · untouched 7,9,12). Overlap: 1, 6; Jupiter adds 2, 4, 8, 10, 11 strongly.</div>
+      <ul class="th-ad-bullets">
+        <li>Career promotion / business growth (2,6,10,11)</li>
+        <li>Property investment (4)</li>
+        <li>Sudden financial gain (8)</li>
+        <li>Marriage / partnership (7) — untouched by Jupiter</li>
+        <li>Foreign travel (9,12) — untouched by Jupiter</li>
+      </ul>
+      <div class="th-ad-text">Jupiter brings real financial and career substance to this Mahadasha, the 2-6-10-11 career-and-wealth group is well represented, alongside property (4) and sudden gains (8). This reads as a solid period for professional growth, financial expansion, or a considered property purchase, backed by Mars's competitive energy (6) and self-drive (1). Partnership and foreign themes stay quiet, since neither planet reinforces 7, 9, or 12 here.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Saturn</div>
+        <div class="th-ad-tag">Disciplined, structural wealth &amp; property period</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Saturn: 2,3,4,5,6,8,10,11 (untouched 1,7,9,12). Overlap: 3, 5, 6; Saturn adds 2, 4, 8, 10, 11 strongly.</div>
+      <ul class="th-ad-bullets">
+        <li>Long-term wealth building (2,11)</li>
+        <li>Property acquisition (4)</li>
+        <li>Career consolidation (6,10)</li>
+        <li>Sudden gain (8)</li>
+        <li>Self-identity shifts and partnership (1,7) — weak, since Saturn doesn't touch them</li>
+      </ul>
+      <div class="th-ad-text">Similar in flavor to Rahu-Saturn earlier in this document: slow, effortful, but structurally sound. This period favors methodical financial progress, real estate, and career stability, built through patience rather than a single dramatic event, with Mars supplying the drive and Saturn supplying the discipline and staying power. Because neither planet reinforces 1 or 7 strongly, this isn't a period of major personal reinvention or relationship milestones, the gains here are practical and asset-based.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Mercury</div>
+        <div class="th-ad-tag">Richest all-round window in this Mahadasha</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Mercury: 1,3,5,6,7,8,9,11,12 (untouched 2,4,10). Overlap: 1, 3, 5, 6, 7 — near-total overlap; Mercury alone adds 8, 9, 11, 12.</div>
+      <ul class="th-ad-bullets">
+        <li>Business partnerships &amp; contracts (7)</li>
+        <li>Foreign travel / education abroad (9)</li>
+        <li>Fulfillment of desire, gains (11)</li>
+        <li>Sudden gain (8)</li>
+        <li>Foreign / cross-border dealing (12)</li>
+        <li>Speculative and competitive success (5,6)</li>
+        <li>Pure property purchase (4) and status (10) — untouched by Mercury</li>
+      </ul>
+      <div class="th-ad-text">This is the single richest antardasha in the entire Mars Mahadasha, the base overlap on 1-3-5-6-7 is essentially total, and Mercury adds 8, 9, 11, and 12 on top of that. This combination is genuinely favorable for signing contracts or forming a business partnership (7), pursuing foreign education, travel, or business (9), landing an unexpected gain (8), and seeing a specific desire fulfilled (11), all against the backdrop of Mars's competitive, assertive drive. If a major deal, foreign trip, or partnership decision is pending in this Mahadasha, this antardasha is the strongest structural candidate for it to conclude favorably.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Ketu</div>
+        <div class="th-ad-tag">Intensified Mars themes, narrow scope</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Ketu: 1,3,5,6,7,11 (weak 2,10 · untouched 4,8,9,12). Overlap: 1, 3, 5, 6, 7 — near-total; Ketu adds 11.</div>
+      <ul class="th-ad-bullets">
+        <li>Fulfillment of a specific desire (11)</li>
+        <li>Competitive/assertive drive, disputes (1,6)</li>
+        <li>Partnership friction or closure (7)</li>
+        <li>Property, foreign matters, big windfalls — untouched by both</li>
+      </ul>
+      <div class="th-ad-text">Ketu here largely mirrors and intensifies Mars's own signature (near-identical house overlap to Mars-Mars) with one meaningful addition: the 11th house, which brings a fulfillment-of-desire theme into an otherwise self/competition/partnership-focused stretch. Given the nodal axis's classical association with endings, transitions, or karmic closure, this period is better read as one where an existing competitive, romantic, or partnership situation resolves or concludes (with a specific desire being met, per the 11th) rather than a period that opens major new wealth, property, or foreign fronts.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Venus</div>
+        <div class="th-ad-tag">Strongest marriage window in this Mahadasha</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Venus: 1,3,5,6,7,8,9,12 (untouched 2,4,10,11). Overlap: 1, 3, 5, 6, 7 — total overlap; Venus alone adds 8, 9, 12.</div>
+      <ul class="th-ad-bullets">
+        <li>Marriage / romantic commitment (7 — doubly reinforced)</li>
+        <li>Foreign travel, luck, luxury (9)</li>
+        <li>Foreign settlement / expenditure (12)</li>
+        <li>Speculative or creative gains, romance (5)</li>
+        <li>Inheritance / sudden gain (8)</li>
+        <li>Wealth accumulation, property, status, fulfillment (2,4,10,11) — all untouched</li>
+      </ul>
+      <div class="th-ad-text">Mars and Venus are the two classic significators of romantic/marital commitment when they reinforce the 7th house together, and that is exactly what happens here: total overlap on the base group plus a doubly-supported 7th house. Combined with Venus's own natural karakatva for relationships and luxury, and the added 9-12 foreign/luck signature, this stands out as the strongest marriage-and-partnership window in the whole Mars Mahadasha, with a real possibility of that relationship having a foreign or travel dimension attached (destination engagement, an overseas partner, a honeymoon-linked trip, etc). Straightforward wealth accumulation, property, and career status stay completely quiet here, this is a relationship-and-experience period, not a money-building one.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Sun</div>
+        <div class="th-ad-tag">Authority, status &amp; property, quieter on gains</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Sun: 1,2,4,6,8,10 (weak 3,5 · untouched 7,9,11,12). Overlap: 1, 6; Sun adds 2, 4, 8, 10 strongly.</div>
+      <ul class="th-ad-bullets">
+        <li>Status, recognition, dealing with authority (10)</li>
+        <li>Property (4)</li>
+        <li>Family wealth (2)</li>
+        <li>Sudden gain (8)</li>
+        <li>Partnership (7) — untouched by Sun despite Mars's strength there</li>
+      </ul>
+      <div class="th-ad-text">This period favors career recognition, dealings with authority or government, and property matters tied to status, backed by Mars's competitive edge. Because Sun leaves the 7th house completely untouched despite Mars being strong there, relationship or partnership matters in this period are more likely to carry ego, assertiveness, or friction than harmony, if a partnership decision is made here, it's likely to be driven by one party's will more than mutual accord. Gains (11) and foreign matters (9,12) stay unsupported.</div>
+    </div>
+
+    <div class="th-ad-card">
+      <div class="th-ad-head">
+        <div class="th-ad-title">Mars → Moon</div>
+        <div class="th-ad-tag">Second-strongest foreign travel/career window in this Mahadasha</div>
+      </div>
+      <div class="th-ad-combined">Mars: 1,3,5,6,7 · Moon: 1,3,6,7,8,9,10,11,12 (untouched 2,4,5). Overlap: 1, 3, 6, 7; Moon alone adds 8, 9, 10, 11, 12 strongly.</div>
+      <ul class="th-ad-bullets">
+        <li>Foreign travel / settlement (3,9,12 — full group)</li>
+        <li>Career &amp; public recognition (10)</li>
+        <li>Fulfillment of desire, gains (11)</li>
+        <li>Marriage / partnership (7)</li>
+        <li>Sudden events / gains (8)</li>
+        <li>Children/speculation (5) and wealth (2) — untouched by Moon</li>
+      </ul>
+      <div class="th-ad-text">Like Rahu-Moon earlier in this document, this is a period where the full 3-9-12 foreign-travel group activates together (Mars supplies 3, Moon supplies 9 and 12), reinforced by strong overlap on career (10), gains (11), and partnership (7). This makes it one of the better antardashas in the Mars Mahadasha for a foreign move tied to career or relationship, an overseas job, a foreign posting, or relocating alongside a partner are all plausible readings. Direct wealth accumulation (2) and children/speculative matters (5) are not supported by Moon here, so if this period brings gain, it is more likely tied to status, career, or fulfillment of a goal than to straightforward savings growth.</div>
+    </div>
 
   <footer>
     Built from Placidus/Bhava Chalit cuspal sub-lord table · sign-lord (owner) column · Bhava Chalit occupancy · KP hierarchy: Sub-lord &gt; Occupant &gt; Owner
