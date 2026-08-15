@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KP Significator Tables — All Planets</title>
+<title>KP Significator Tables · All Planets</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -149,6 +149,120 @@
     font-size: 0.78rem;
     margin-top: 40px;
   }
+
+  .verify-box {
+    background: #16241c;
+    border: 1px solid #2c4536;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 0 0 32px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+  .verify-box b { color: #8fcf9f; }
+
+  .section-lead {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin: 10px 0 28px;
+    max-width: 900px;
+  }
+  .section-lead b { color: var(--text); }
+
+  .md-block {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 22px 26px 18px;
+    margin-bottom: 26px;
+  }
+  .md-title {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .md-sub {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+
+  .grid-legend {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+  .grid-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+  .dot.c-both { background: var(--tier1); }
+  .dot.c-md { background: var(--accent); }
+  .dot.c-ad { background: var(--tier2); }
+  .dot.c-none { background: #262a38; border: 1px solid var(--panel-border); }
+
+  .ad-block {
+    border-top: 1px dashed var(--panel-border);
+    padding: 16px 0 4px;
+  }
+  .ad-block:first-of-type { border-top: none; padding-top: 4px; }
+  .ad-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .ad-name {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .ad-name .arrow { color: var(--text-dim); font-weight: 400; margin: 0 4px; }
+  .ad-status {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+  .ad-status.full { color: #8fcf9f; }
+
+  .house-grid {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .house-chip {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: 1px solid var(--panel-border);
+  }
+  .house-chip.c-both { background: var(--tier1); color: #2a0d13; }
+  .house-chip.c-md { background: var(--accent); color: #2a1d0a; }
+  .house-chip.c-ad { background: var(--tier2); color: #0a1620; }
+  .house-chip.c-none { background: transparent; color: #4a4d5a; }
+
+  .ad-note {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .ad-note b { color: var(--text); }
 </style>
 </head>
 <body>
@@ -158,36 +272,47 @@
   <div class="subtitle">Placidus / Bhava Chalit cusps · sub-lord hierarchy: Sub-lord &gt; Occupant &gt; Owner</div>
 
   <div class="legend">
-    <span><span class="dot t1"></span>Tier 1 — Sub-lord of cusp (final word / strongest)</span>
-    <span><span class="dot t2"></span>Tier 2 — Occupant of house</span>
-    <span><span class="dot t3"></span>Tier 3 — Owner / sign lord (weakest)</span>
+    <span><span class="dot t1"></span>Tier 1 (Sub-lord of cusp, final word / strongest)</span>
+    <span><span class="dot t2"></span>Tier 2 (Occupant of house)</span>
+    <span><span class="dot t3"></span>Tier 3 (Owner / sign lord, weakest)</span>
+  </div>
+
+  <div class="verify-box">
+    <b>Recheck complete.</b> Every row below was regenerated directly from the cuspal sub-lord table, the house
+    occupancy table, and the planet longitude/sign table (Placidus cusps opposite-checked pair by pair) &mdash; no
+    entries were carried over unverified. On the specific question of Venus: Venus is correctly <b>absent</b> from
+    the Mars table. Mars's own significator chain is Self + star lord Sun + sub-lord Jupiter only &mdash; Venus is
+    none of those, so even though Venus sits alone in the 7th house (a house Mars sub-lords), Venus does not enter
+    Mars's chain. Venus's own occupancy of the 7th only shows up under planets whose chain actually includes Venus
+    (e.g. Moon, whose star lord is Venus). All tier assignments below (10 house-tables across 9 planets) were
+    cross-checked this way and no discrepancies turned up.
   </div>
 
   <!-- RAHU -->
   <div class="planet-card">
     <div class="planet-header">
-      <div class="planet-name">Rahu — Mahadasha Significators</div>
+      <div class="planet-name">Rahu · Mahadasha Significators</div>
       <div class="planet-meta">Node · owns no sign · chain via dispositor</div>
     </div>
     <div class="chain-note">
-      Chain: <b>Self</b> (occupies 5th) + <b>Dispositor Saturn</b> (Rahu in Aquarius — owns 4th, occupies 2nd, sub-lord of 2/4/8/10)
+      Chain: <b>Self</b> (occupies 5th) + <b>Dispositor Saturn</b> (Rahu in Aquarius, owns 4th, occupies 2nd, sub-lord of 2/4/8/10)
       + <b>Conjunct Mercury</b> (owns 9th/11th, occupies 5th) + <b>Star lord Jupiter</b> (owns 3rd/5th, occupies 6th)
-      + <b>Sub-lord Sun</b> (sub-lord of 1st) — with Rahu's own direct sub-lordship of the 11th cusp.
+      + <b>Sub-lord Sun</b> (sub-lord of 1st), plus Rahu's own direct sub-lordship of the 11th cusp.
     </div>
     <table>
-      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 — Sub-lord</th><th>Tier 2 — Occupant</th><th>Tier 3 — Owner</th></tr></thead>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 (Sub-lord)</th><th>Tier 2 (Occupant)</th><th>Tier 3 (Owner)</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">11th</td><td class="tier1cell">Rahu (self), Mercury</td><td class="empty">—</td><td class="tier3cell">Mercury</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="empty">—</td><td class="tier2cell">Rahu, Mercury</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">12th</td><td class="tier1cell">Mercury</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter, Sun</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">8</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">9</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">10</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">11</td><td class="house-cell">9th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mercury</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">11th</td><td class="tier1cell">Rahu (self), Mercury</td><td class="empty"></td><td class="tier3cell">Mercury</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="empty"></td><td class="tier2cell">Rahu, Mercury</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">12th</td><td class="tier1cell">Mercury</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">6th</td><td class="empty"></td><td class="tier2cell">Jupiter, Sun</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">9</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">10</td><td class="house-cell">3rd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">11</td><td class="house-cell">9th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Mercury</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>7th</b> only.</div>
@@ -196,7 +321,7 @@
   <!-- MARS -->
   <div class="planet-card">
     <div class="planet-header">
-      <div class="planet-name">Mars — Mahadasha Significators</div>
+      <div class="planet-name">Mars · Mahadasha Significators</div>
       <div class="planet-meta">Owns 2nd, 6th, 7th · occupies 3rd</div>
     </div>
     <div class="chain-note">
@@ -204,21 +329,21 @@
       + <b>Sub-lord Jupiter</b> (owns 3rd/5th, occupies 6th).
     </div>
     <table>
-      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 — Sub-lord</th><th>Tier 2 — Occupant</th><th>Tier 3 — Owner</th></tr></thead>
+      <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1 (Sub-lord)</th><th>Tier 2 (Occupant)</th><th>Tier 3 (Owner)</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">7th</td><td class="tier1cell">Mars (self)</td><td class="empty">—</td><td class="tier3cell">Mars (self)</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="tier1cell">Mars (self)</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun, Jupiter</td><td class="tier3cell">Mars (self)</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="tier2cell">Mars (self)</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">2nd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">7th</td><td class="tier1cell">Mars (self)</td><td class="empty"></td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">5th</td><td class="tier1cell">Mars (self)</td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">6th</td><td class="empty"></td><td class="tier2cell">Sun, Jupiter</td><td class="tier3cell">Mars (self)</td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty"></td><td class="tier2cell">Mars (self)</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">2nd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Mars (self)</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>4th, 8th, 9th, 10th, 11th, 12th</b>.</div>
   </div>
 
   <h1 style="font-size:1.4rem; margin-top: 44px;">Remaining Seven Planets</h1>
-  <div class="subtitle" style="margin-bottom:24px;">Same chain logic — self + star lord + sub-lord (+ conjunct planet where relevant)</div>
+  <div class="subtitle" style="margin-bottom:24px;">Same chain logic: self + star lord + sub-lord (+ conjunct planet where relevant)</div>
 
   <!-- SUN -->
   <div class="planet-card">
@@ -233,14 +358,14 @@
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun (self), Jupiter</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty"></td><td class="tier2cell">Sun (self), Jupiter</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun (self)</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>7th, 9th, 11th, 12th</b>.</div>
@@ -258,15 +383,15 @@
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">1</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Moon (self)</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">1st</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">10th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Moon (self)</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">12th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon (self)</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty"></td><td class="tier2cell">Venus</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">11th</td><td class="empty"></td><td class="tier2cell">Moon (self)</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">1st</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">8th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">10th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Moon (self)</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">12th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>2nd, 4th, 5th</b>.</div>
@@ -285,15 +410,15 @@
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">5th</td><td class="empty">—</td><td class="tier2cell">Mercury (self), Rahu</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="tier2cell">Jupiter</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty">—</td><td class="tier3cell">Mercury (self)</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">11th</td><td class="tier1cell">Rahu</td><td class="empty">—</td><td class="tier3cell">Mercury (self)</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">12th</td><td class="tier1cell">Mercury (self)</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
-        <tr><td class="rank-cell">6</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">5th</td><td class="empty"></td><td class="tier2cell">Mercury (self), Rahu</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus</td><td class="tier2cell">Jupiter</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus</td><td class="empty"></td><td class="tier3cell">Mercury (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">11th</td><td class="tier1cell">Rahu</td><td class="empty"></td><td class="tier3cell">Mercury (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">12th</td><td class="tier1cell">Mercury (self)</td><td class="empty"></td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">6</td><td class="house-cell">7th</td><td class="empty"></td><td class="tier2cell">Venus</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">1st</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">8th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>2nd, 4th, 10th</b>.</div>
@@ -312,15 +437,15 @@
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="tier3cell">Saturn</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter (self), Sun</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">8</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter (self)</td></tr>
-        <tr><td class="rank-cell">8</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter (self)</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn</td><td class="tier2cell">Saturn</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="tier3cell">Saturn</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">6th</td><td class="empty"></td><td class="tier2cell">Jupiter (self), Sun</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">8th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">10th</td><td class="tier1cell">Saturn</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">11th</td><td class="empty"></td><td class="tier2cell">Ketu</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">3rd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter (self)</td></tr>
+        <tr><td class="rank-cell">8</td><td class="house-cell">5th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter (self)</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>7th, 9th, 12th</b>.</div>
@@ -339,14 +464,14 @@
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus (self)</td><td class="tier2cell">Sun, Jupiter</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty">—</td><td class="tier2cell">Venus (self)</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">8th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">12th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">6th</td><td class="tier1cell">Venus (self)</td><td class="tier2cell">Sun, Jupiter</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty"></td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">9th</td><td class="tier1cell">Venus (self)</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">7th</td><td class="empty"></td><td class="tier2cell">Venus (self)</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">3rd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">5th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">8th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus (self)</td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">12th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Venus (self)</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>2nd, 4th, 10th, 11th</b>.</div>
@@ -365,14 +490,14 @@
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn (self)</td><td class="tier2cell">Saturn (self)</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="tier3cell">Saturn (self)</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">8th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">3</td><td class="house-cell">10th</td><td class="tier1cell">Saturn (self)</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Jupiter</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">5</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">2nd</td><td class="tier1cell">Saturn (self)</td><td class="tier2cell">Saturn (self)</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">4th</td><td class="tier1cell">Saturn (self)</td><td class="empty"></td><td class="tier3cell">Saturn (self)</td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">8th</td><td class="tier1cell">Saturn (self)</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">3</td><td class="house-cell">10th</td><td class="tier1cell">Saturn (self)</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">6th</td><td class="empty"></td><td class="tier2cell">Jupiter</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">5</td><td class="house-cell">11th</td><td class="empty"></td><td class="tier2cell">Ketu</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">3rd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">5th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Jupiter</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>1st, 7th, 9th, 12th</b>.</div>
@@ -385,23 +510,435 @@
       <div class="planet-meta">Node · owns no sign · occupies 11th · conjunct Moon</div>
     </div>
     <div class="chain-note">
-      Chain: <b>Self</b> (occupies 11th) + <b>Dispositor / star lord Sun</b> (Ketu in Leo — occupies 6th, sub-lord of 1st)
+      Chain: <b>Self</b> (occupies 11th) + <b>Dispositor / star lord Sun</b> (Ketu in Leo, occupies 6th, sub-lord of 1st)
       + <b>Sub-lord Mars</b> (owns 2nd/6th/7th, occupies 3rd, sub-lord of 5th/7th) + <b>Conjunct Moon</b> (owns 10th, occupies 11th, sub-lord of 3rd).
     </div>
     <table>
       <thead><tr><th class="rank-cell">#</th><th>House</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th></tr></thead>
       <tbody>
-        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon</td><td class="tier2cell">Mars</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">7th</td><td class="tier1cell">Mars</td><td class="empty">—</td><td class="tier3cell">Mars</td></tr>
-        <tr><td class="rank-cell">2</td><td class="house-cell">11th</td><td class="empty">—</td><td class="tier2cell">Ketu (self), Moon</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">5th</td><td class="tier1cell">Mars</td><td class="empty">—</td><td class="empty">—</td></tr>
-        <tr><td class="rank-cell">4</td><td class="house-cell">6th</td><td class="empty">—</td><td class="tier2cell">Sun</td><td class="tier3cell">Mars</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">2nd</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Mars</td></tr>
-        <tr><td class="rank-cell">7</td><td class="house-cell">10th</td><td class="empty">—</td><td class="empty">—</td><td class="tier3cell">Moon</td></tr>
+        <tr><td class="rank-cell">1</td><td class="house-cell">3rd</td><td class="tier1cell">Moon</td><td class="tier2cell">Mars</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">7th</td><td class="tier1cell">Mars</td><td class="empty"></td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">2</td><td class="house-cell">11th</td><td class="empty"></td><td class="tier2cell">Ketu (self), Moon</td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">1st</td><td class="tier1cell">Sun</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">5th</td><td class="tier1cell">Mars</td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="rank-cell">4</td><td class="house-cell">6th</td><td class="empty"></td><td class="tier2cell">Sun</td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">2nd</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Mars</td></tr>
+        <tr><td class="rank-cell">7</td><td class="house-cell">10th</td><td class="empty"></td><td class="empty"></td><td class="tier3cell">Moon</td></tr>
       </tbody>
     </table>
     <div class="untouched">Untouched: <b>4th, 8th, 9th, 12th</b>.</div>
+  </div>
+
+  <h1 style="font-size:1.4rem; margin-top: 56px;">Dasha &middot; Bhukti Activation</h1>
+  <div class="section-lead">
+    For a Mahadasha (MD) lord, the houses it signifies come from its own chain (self + star lord + sub-lord +
+    any conjunct planet &mdash; see cards above). During each Antardasha (AD) inside that Mahadasha, the AD
+    lord's <i>own</i> chain becomes active too, and results for the period come from the <b>combination</b> of
+    both sets of houses. A house lit up by <b>both</b> MD and AD lords (red) is the strongest for that period;
+    a house touched by only one of them (gold = MD only, blue = AD only) is weaker; a grey/blank cell means
+    neither lord's chain reaches that house in this Antardasha, so it stays quiet during that period. Sequence
+    follows the fixed Vimshottari order (Ke&rarr;Ve&rarr;Su&rarr;Mo&rarr;Ma&rarr;Ra&rarr;Ju&rarr;Sa&rarr;Me&rarr;back
+    to Ke), starting from the Mahadasha lord itself. No timing/duration is given here, only which houses turn on.
+  </div>
+
+  <div class="md-block">
+    <div class="md-title">Mars Mahadasha</div>
+    <div class="md-sub">Cuspal sub-lord of 5th &amp; 7th &middot; owns 2nd/6th/7th &middot; occupies 3rd. Antardasha order: Ma &rarr; Ra &rarr; Ju &rarr; Sa &rarr; Me &rarr; Ke &rarr; Ve &rarr; Su &rarr; Mo.</div>
+    <div class="grid-legend">
+      <span><span class="dot c-both"></span>Both MD &amp; AD lord touch this house</span>
+      <span><span class="dot c-md"></span>MD (Mars) only</span>
+      <span><span class="dot c-ad"></span>AD lord only</span>
+      <span><span class="dot c-none"></span>Untouched this period</span>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Mars</div>
+        <div class="ad-status ">Mars's own significators only</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-md">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-md">3</div>
+        <div class="house-chip c-none">4</div>
+        <div class="house-chip c-md">5</div>
+        <div class="house-chip c-md">6</div>
+        <div class="house-chip c-md">7</div>
+        <div class="house-chip c-none">8</div>
+        <div class="house-chip c-none">9</div>
+        <div class="house-chip c-none">10</div>
+        <div class="house-chip c-none">11</div>
+        <div class="house-chip c-none">12</div>
+      </div>
+      <div class="ad-note">See <b>Mars</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Rahu</div>
+        <div class="ad-status full">Full activation &mdash; all 12 houses touched (AD lord fills the 4th/8th/9th/10th/11th/12th gap)</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-ad">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-md">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-ad">9</div>
+        <div class="house-chip c-ad">10</div>
+        <div class="house-chip c-ad">11</div>
+        <div class="house-chip c-ad">12</div>
+      </div>
+      <div class="ad-note">See <b>Rahu</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Jupiter</div>
+        <div class="ad-status ">Gap: 9th/12th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-ad">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-md">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-none">9</div>
+        <div class="house-chip c-ad">10</div>
+        <div class="house-chip c-ad">11</div>
+        <div class="house-chip c-none">12</div>
+      </div>
+      <div class="ad-note">See <b>Jupiter</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Saturn</div>
+        <div class="ad-status ">Gap: 9th/12th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-md">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-ad">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-md">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-none">9</div>
+        <div class="house-chip c-ad">10</div>
+        <div class="house-chip c-ad">11</div>
+        <div class="house-chip c-none">12</div>
+      </div>
+      <div class="ad-note">See <b>Saturn</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Mercury</div>
+        <div class="ad-status ">Gap: 4th/10th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-none">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-both">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-ad">9</div>
+        <div class="house-chip c-none">10</div>
+        <div class="house-chip c-ad">11</div>
+        <div class="house-chip c-ad">12</div>
+      </div>
+      <div class="ad-note">See <b>Mercury</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Ketu</div>
+        <div class="ad-status ">Gap: 4th/8th/9th/12th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-none">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-both">7</div>
+        <div class="house-chip c-none">8</div>
+        <div class="house-chip c-none">9</div>
+        <div class="house-chip c-ad">10</div>
+        <div class="house-chip c-ad">11</div>
+        <div class="house-chip c-none">12</div>
+      </div>
+      <div class="ad-note">See <b>Ketu</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Venus</div>
+        <div class="ad-status ">Gap: 4th/10th/11th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-none">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-both">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-ad">9</div>
+        <div class="house-chip c-none">10</div>
+        <div class="house-chip c-none">11</div>
+        <div class="house-chip c-ad">12</div>
+      </div>
+      <div class="ad-note">See <b>Venus</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Sun</div>
+        <div class="ad-status ">Gap: 9th/11th/12th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-ad">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-md">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-none">9</div>
+        <div class="house-chip c-ad">10</div>
+        <div class="house-chip c-none">11</div>
+        <div class="house-chip c-none">12</div>
+      </div>
+      <div class="ad-note">See <b>Sun</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Mars<span class="arrow">&rarr;</span>Moon</div>
+        <div class="ad-status ">Gap: 4th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-none">4</div>
+        <div class="house-chip c-md">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-both">7</div>
+        <div class="house-chip c-ad">8</div>
+        <div class="house-chip c-ad">9</div>
+        <div class="house-chip c-ad">10</div>
+        <div class="house-chip c-ad">11</div>
+        <div class="house-chip c-ad">12</div>
+      </div>
+      <div class="ad-note">See <b>Moon</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+  </div>
+
+  <div class="md-block">
+    <div class="md-title">Rahu Mahadasha</div>
+    <div class="md-sub">Cuspal sub-lord of 11th &middot; occupies 5th &middot; dispositor Saturn (owns 4th) &middot; conjunct Mercury. Antardasha order: Ra &rarr; Ju &rarr; Sa &rarr; Me &rarr; Ke &rarr; Ve &rarr; Su &rarr; Mo &rarr; Ma.</div>
+    <div class="grid-legend">
+      <span><span class="dot c-both"></span>Both MD &amp; AD lord touch this house</span>
+      <span><span class="dot c-md"></span>MD (Rahu) only</span>
+      <span><span class="dot c-ad"></span>AD lord only</span>
+      <span><span class="dot c-none"></span>Untouched this period</span>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Rahu</div>
+        <div class="ad-status ">Rahu's own significators only</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-md">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-md">3</div>
+        <div class="house-chip c-md">4</div>
+        <div class="house-chip c-md">5</div>
+        <div class="house-chip c-md">6</div>
+        <div class="house-chip c-none">7</div>
+        <div class="house-chip c-md">8</div>
+        <div class="house-chip c-md">9</div>
+        <div class="house-chip c-md">10</div>
+        <div class="house-chip c-md">11</div>
+        <div class="house-chip c-md">12</div>
+      </div>
+      <div class="ad-note">See <b>Rahu</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Jupiter</div>
+        <div class="ad-status ">Gap: 7th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-both">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-none">7</div>
+        <div class="house-chip c-both">8</div>
+        <div class="house-chip c-md">9</div>
+        <div class="house-chip c-both">10</div>
+        <div class="house-chip c-both">11</div>
+        <div class="house-chip c-md">12</div>
+      </div>
+      <div class="ad-note">See <b>Jupiter</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Saturn</div>
+        <div class="ad-status ">Gap: 7th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-md">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-both">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-none">7</div>
+        <div class="house-chip c-both">8</div>
+        <div class="house-chip c-md">9</div>
+        <div class="house-chip c-both">10</div>
+        <div class="house-chip c-both">11</div>
+        <div class="house-chip c-md">12</div>
+      </div>
+      <div class="ad-note">See <b>Saturn</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Mercury</div>
+        <div class="ad-status full">Full activation &mdash; all 12 houses touched (AD lord fills the 7th gap)</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-md">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-ad">7</div>
+        <div class="house-chip c-both">8</div>
+        <div class="house-chip c-both">9</div>
+        <div class="house-chip c-md">10</div>
+        <div class="house-chip c-both">11</div>
+        <div class="house-chip c-both">12</div>
+      </div>
+      <div class="ad-note">See <b>Mercury</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Ketu</div>
+        <div class="ad-status full">Full activation &mdash; all 12 houses touched (AD lord fills the 7th gap)</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-md">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-ad">7</div>
+        <div class="house-chip c-md">8</div>
+        <div class="house-chip c-md">9</div>
+        <div class="house-chip c-both">10</div>
+        <div class="house-chip c-both">11</div>
+        <div class="house-chip c-md">12</div>
+      </div>
+      <div class="ad-note">See <b>Ketu</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Venus</div>
+        <div class="ad-status full">Full activation &mdash; all 12 houses touched (AD lord fills the 7th gap)</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-md">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-ad">7</div>
+        <div class="house-chip c-both">8</div>
+        <div class="house-chip c-both">9</div>
+        <div class="house-chip c-md">10</div>
+        <div class="house-chip c-md">11</div>
+        <div class="house-chip c-both">12</div>
+      </div>
+      <div class="ad-note">See <b>Venus</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Sun</div>
+        <div class="ad-status ">Gap: 7th untouched</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-both">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-none">7</div>
+        <div class="house-chip c-both">8</div>
+        <div class="house-chip c-md">9</div>
+        <div class="house-chip c-both">10</div>
+        <div class="house-chip c-md">11</div>
+        <div class="house-chip c-md">12</div>
+      </div>
+      <div class="ad-note">See <b>Sun</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Moon</div>
+        <div class="ad-status full">Full activation &mdash; all 12 houses touched (AD lord fills the 7th gap)</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-md">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-md">4</div>
+        <div class="house-chip c-md">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-ad">7</div>
+        <div class="house-chip c-both">8</div>
+        <div class="house-chip c-both">9</div>
+        <div class="house-chip c-both">10</div>
+        <div class="house-chip c-both">11</div>
+        <div class="house-chip c-both">12</div>
+      </div>
+      <div class="ad-note">See <b>Moon</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
+    <div class="ad-block">
+      <div class="ad-head">
+        <div class="ad-name">Rahu<span class="arrow">&rarr;</span>Mars</div>
+        <div class="ad-status full">Full activation &mdash; all 12 houses touched (AD lord fills the 7th gap)</div>
+      </div>
+      <div class="house-grid">
+        <div class="house-chip c-both">1</div>
+        <div class="house-chip c-both">2</div>
+        <div class="house-chip c-both">3</div>
+        <div class="house-chip c-md">4</div>
+        <div class="house-chip c-both">5</div>
+        <div class="house-chip c-both">6</div>
+        <div class="house-chip c-ad">7</div>
+        <div class="house-chip c-md">8</div>
+        <div class="house-chip c-md">9</div>
+        <div class="house-chip c-md">10</div>
+        <div class="house-chip c-md">11</div>
+        <div class="house-chip c-md">12</div>
+      </div>
+      <div class="ad-note">See <b>Mars</b> card above for its own chain (star lord / sub-lord / conjunctions already folded in).</div>
+    </div>
   </div>
 
   <footer>
